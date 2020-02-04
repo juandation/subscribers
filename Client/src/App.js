@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   //SortByName
-  const byName = function sortByName() {
+  function sortByName() {
     function compare(a, b) {
       const nameA = a.name.toUpperCase();
       const nameB = b.name.toUpperCase();
@@ -41,7 +41,7 @@ function App() {
     const nameSorted = subscribers.sort(compare);
     setSubscribers(nameSorted);
     console.log(nameSorted);
-  };
+  }
 
   //sortByAge
   const byAge = function sortByName() {
@@ -96,7 +96,7 @@ function App() {
           <tbody>
             {subscribers.map(subscriber => {
               return (
-                <tr key={subscriber.id}>
+                <tr>
                   <td>{subscriber.name}</td>
                   <td>{subscriber.lastName}</td>
                   <td>{subscriber.age}</td>
@@ -107,7 +107,7 @@ function App() {
           </tbody>
         </table>
       </div>
-      <button onClick={byName}>Sort By Name</button>
+      <button onClick={() => sortByName()}>Sort By Name</button>
 
       <button onClick={byAge}>Sort By Age</button>
       <button onClick={bySport}>Sort By Sport</button>
